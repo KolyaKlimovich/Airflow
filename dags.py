@@ -13,7 +13,7 @@ from airflow.models import Variable
 
 
 default_args = {
-    'owner': 'r.alykov',
+    'owner': 'n.klimovich',
     'depends_on_past': False,
     'retries': 2,
     'retry_delay': timedelta(minutes=5),
@@ -23,7 +23,7 @@ schedule_interval = '*/5 * */1 * *'
 
 @dag(default_args=default_args, schedule_interval = schedule_interval, catchup=False)
 
-def ralykov_airflow_2_2():
+def klimovich_airflow_2_2():
     
     @task(retries=3)
     def get_data():
@@ -119,4 +119,4 @@ def ralykov_airflow_2_2():
 
     print_data(most_sold_game, eu_sales, na_sales, jp_sales, jp_eu_sales_diff)
 
-ralykov_airflow_2_2 = ralykov_airflow_2_2()
+klimovich_airflow_2_2 = klimovich_airflow_2_2()
